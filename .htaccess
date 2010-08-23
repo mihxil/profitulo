@@ -1,0 +1,5 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteBase /profitulo/
+
+RewriteRule ^profitulo\.html$ . [R=permanent,L]

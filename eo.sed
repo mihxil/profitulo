@@ -1,0 +1,14 @@
+    s|ŝtrumpet\ojn|ŝtrump\\-et\\-ojn|g;
+    s|antaŭnelonge|antaŭ\\-ne\\-longe|g;
+    s|eksport|eks\\-port|g;
+    s|renkont|ren\\-kont|g;
+    s|rezignaciad|re\\-zig\\-naci\\-ad|g;
+    s|promenbaston|pro\\-men\\-bas\\-ton|g;   
+    s|akvoamaso|akvo\\-amaso|g;   
+    s|salajro|sa\\-laj\\-ro|g;   
+    s|rapidtrajno|ra\\-pid\\-trajno|g;   
+    s|ĉirkaŭrigardis|ĉirkaŭ\\-ri\\-gar\\-dis|g;
+    s|salmkoloran|salm\\-koloran|g;
+    s|malĝentilaj|mal\\-ĝen\\-til\\-aj|g;
+    s|manĝpoto|manĝ\\-poto|g;
+    s|kontorkonstruaĵo|kontor\\-konstru\\-aĵo|g;
