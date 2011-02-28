@@ -2,4 +2,12 @@ Options +FollowSymlinks
 RewriteEngine on
 RewriteBase /profitulo/
 
-RewriteRule ^profitulo\.html$ . [R=permanent,L]
+RewriteCond %{HTTP_HOST} ^www\.meeuw\.org [NC]
+RewriteRule ^(.*) http://meeuw.org/profitulo/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^mihxil\.komputilo\.org [NC]
+RewriteRule ^(.*) http://meeuw.org/profitulo/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.vek\.komputilo\.org [NC]
+RewriteRule ^(.*) http://meeuw.org/profitulo/$1 [R=301,L]
+
