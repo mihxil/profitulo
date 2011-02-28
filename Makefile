@@ -1,50 +1,44 @@
 
 SHELL=/bin/bash
+
 .PHONY: all revisio
-all: profitulo.ps profitulo-a4.ps profitulo.pdf profitulo-libreto.pdf
+all: profitulo-a4.pdf profitulo-a5.pdf profitulo-libreto.pdf
 
 revisio:
 	@svn up >/dev/null
-	@svn info |  grep Revision | awk '{print $2}' > revisio.txt.new
-	diff revisio.txt revisio.txt.new >/dev/null ; echo $?
+	date  --rfc-3339=date | tr -d "\n" > revisio.tex
+	svn info |  grep Revision | awk '{print " r" $$2}' >> revisio.tex
 
-profitulo.tex: index.html Makefile	 ../latehxigu.xslt eo.sed  titolpag.tex revisio.txt
-	xsltproc ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo.tex
+profitulo-a5.tex: index.html Makefile	 ../latehxigu.xslt eo.sed  titolpag.tex revisio
+	xsltproc ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo-a5.tex
 
-profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex revisio.txt
+profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex revisio
 	xsltproc --stringparam geometry a4paper ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo-a4.tex
 
-profitulo.dvi: profitulo.tex
-	latex profitulo.tex
+%.dvi: %.tex
+	latex $<
 
-profitulo-a4.dvi: profitulo-a4.tex
-	latex profitulo-a4.tex
+%.ps: %.dvi
+	dvips $< -f > $@
 
-profitulo-a5.ps: profitulo.dvi
-	dvips profitulo.dvi -f > profitulo-a5.ps
-
-profitulo-a5-signature.ps: profitulo-a5.ps
-	psbook -s32 profitulo-a5.ps profitulo-a5-signature.ps
+%-signature.ps: %-a5.ps
+	psbook -s32 $< $@
 
 profitulo-libreto.ps:  profitulo-a5-signature.ps
-	psnup -d -l -pa4 -Pa5 -2  profitulo-a5-signature.ps profitulo-libreto.ps
-
-profitulo-a5.pdf: profitulo-a5.ps
-	ps2pdf profitulo-a5.ps
-
-profitulo-libreto.pdf: profitulo-libreto.ps
-	ps2pdf profitulo-libreto.ps
+	psnup -d -l -pa4 -Pa5 -2  $< $@
 
 
-profitulo-a4.ps: profitulo-a4.dvi
-	dvips profitulo-a4.dvi -f > profitulo-a4.ps
+#%.pdf: %.ps
+#	ps2pdf %.ps
 
-profitulo.ps.gz: profitulo.ps
-	gzip -f profitulo.ps
+%.pdf: %.tex
+	pdflatex $<
 
-profitulo.pdf: profitulo.tex
-	pdflatex profitulo.tex
+
+%.ps.gz: %.ps
+	gzip -f %<
+
 
 .PHONY: clean
 clean:
-	rm -f profitulo.pdf *.log *.aux *.dvi profitulo-a4*  *.ps profitulo.tex
+	rm -f *.pdf *.log *.aux *.dvi profitulo-a4*  *.ps profitulo-a5.tex profitulo-a4.tex
