@@ -1,12 +1,17 @@
 
-.PHONY: all
+SHELL=/bin/bash
+.PHONY: all revisio
 all: profitulo.ps profitulo-a4.ps profitulo.pdf profitulo-libreto.pdf
 
+revisio:
+	@svn up >/dev/null
+	@svn info |  grep Revision | awk '{print $2}' > revisio.txt.new
+	diff revisio.txt revisio.txt.new >/dev/null ; echo $?
 
-profitulo.tex: index.html Makefile	 ../latehxigu.xslt eo.sed  titolpag.tex
+profitulo.tex: index.html Makefile	 ../latehxigu.xslt eo.sed  titolpag.tex revisio.txt
 	xsltproc ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo.tex
 
-profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex
+profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex revisio.txt
 	xsltproc --stringparam geometry a4paper ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo-a4.tex
 
 profitulo.dvi: profitulo.tex
