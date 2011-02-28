@@ -18,27 +18,28 @@ profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex rev
 %.dvi: %.tex
 	latex $<
 
+%.signature.ps: %-a5.ps
+	psbook -s32 $< $@
+
 %.ps: %.dvi
 	dvips $< -f > $@
 
-%-signature.ps: %-a5.ps
-	psbook -s32 $< $@
 
-profitulo-libreto.ps:  profitulo-a5-signature.ps
+profitulo-libreto.ps:  profitulo.signature.ps
 	psnup -d -l -pa4 -Pa5 -2  $< $@
 
 
-#%.pdf: %.ps
-#	ps2pdf %.ps
+%.pdf: %.ps
+	ps2pdf $<
 
 %.pdf: %.tex
 	pdflatex $<
 
 
 %.ps.gz: %.ps
-	gzip -f %<
+	gzip -f $<
 
 
 .PHONY: clean
 clean:
-	rm -f *.pdf *.log *.aux *.dvi profitulo-a4*  *.ps profitulo-a5.tex profitulo-a4.tex
+	rm -f *.pdf *.log *.aux *.dvi profitulo-a4*  *.ps profitulo-a5*
