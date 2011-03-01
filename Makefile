@@ -4,15 +4,15 @@ SHELL=/bin/bash
 .PHONY: all revisio
 all: profitulo-a4.pdf profitulo-a5.pdf profitulo-libreto.pdf
 
-revisio:
+revisio.tex: .svn
 	@svn up >/dev/null
 	date  --rfc-3339=date | tr -d "\n" > revisio.tex
 	svn info |  grep Revision | awk '{print " r" $$2}' >> revisio.tex
 
-profitulo-a5.tex: index.html Makefile	 ../latehxigu.xslt eo.sed  titolpag.tex revisio
+profitulo-a5.tex: index.html Makefile	 ../latehxigu.xslt eo.sed  titolpag.tex revisio.tex
 	xsltproc ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo-a5.tex
 
-profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex revisio
+profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex revisio.tex
 	xsltproc --stringparam geometry a4paper ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo-a4.tex
 
 %.dvi: %.tex
