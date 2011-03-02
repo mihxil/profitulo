@@ -10,10 +10,14 @@ revisio.tex: .svn
 	svn info |  grep Revision | awk '{print " r" $$2}' >> revisio.tex
 
 profitulo-a5.tex: index.html Makefile	 ../latehxigu.xslt eo.sed  titolpag.tex revisio.tex
-	xsltproc ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo-a5.tex
+	xsltproc --stringparam centering yes ../latehxigu.xslt index.html  \
+	| sed -f eo.sed -f ../utf8-tex.sed \
+	> profitulo-a5.tex
 
 profitulo-a4.tex: index.html Makefile	 ../latehxigu.xslt eo.sed titolpag.tex revisio.tex
-	xsltproc --stringparam geometry a4paper ../latehxigu.xslt index.html  | sed -f eo.sed | konwert utf8-tex > profitulo-a4.tex
+	xsltproc --stringparam centerying yes --stringparam geometry a4paper ../latehxigu.xslt index.html \
+	| sed -f eo.sed -f  ../utf8-tex.sed \
+	> profitulo-a4.tex
 
 %.dvi: %.tex
 	latex $<
