@@ -15,3 +15,5 @@
     s|Vanhaŭten|Van\\-haŭ\\-ten|g;
     s|okupiĝis|ok\\-up\\-iĝis|g;
     s|elĉerpiĝis|el\\-ĉerp\\-iĝis|g;
+    s|havenurbo|haven\\-urbo|g;
+    s|provinco|pro\\-vin\\-co|g;
