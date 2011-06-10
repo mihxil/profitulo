@@ -1,5 +1,6 @@
 @import url(../stilo.css);
 
-img.right {
+img.right, img.left {
     margin-bottom: 1ex;
+    margin-top: 1ex;
 }
