@@ -1,12 +1,7 @@
-/profitulo-a4.aux
-/profitulo-a4.log
-/profitulo-a4.out
-/profitulo-a4.pdf
-/profitulo-a5.aux
-/profitulo-a5.log
-/profitulo-a5.out
-/profitulo-a5.pdf
-/profitulo-libreto.pdf
+/*.aux
+/*.log
+/*.out
+/*.pdf
 /revisio.tex
 /zeeland.eps
-/profitulo.epub
+/*.epub
