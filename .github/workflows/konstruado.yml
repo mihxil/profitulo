@@ -16,12 +16,12 @@ jobs:
     - name: Konstruas cxion
       run: |
         make per-docker
-    - uses: actions/upload-artifact@v2
-      with:
-       name: profitulo.zip
-       path: |
-        *.pdf
-        *.epub
+    #- uses: actions/upload-artifact@v2
+    #  with:
+    #   name: profitulo.zip
+    #   path: |
+    #    *.pdf
+    #    *.epub
     - uses: seanmiddleditch/gha-publish-to-git@master
       with:
         branch: gh-pages
