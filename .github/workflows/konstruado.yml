@@ -3,8 +3,6 @@ name: Konstruas
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -18,3 +16,9 @@ jobs:
     - name: Konstruas cxion    
       run: |
         make per-docker
+    - uses: actions/upload-artifact@v2
+      with:
+       name: artfarajxoj
+       path: |
+        *.pdf
+        *.epub
