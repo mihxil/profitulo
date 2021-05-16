@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2 
+    - uses: actions/checkout@v2
       with:
          submodules: 'true'
-    - name: Konstruas cxion    
+    - name: Konstruas cxion
       run: |
         make per-docker
     - uses: actions/upload-artifact@v2
@@ -21,10 +21,8 @@ jobs:
        name: profitulo.zip
        path: |
         *.pdf
-        *.epub      
+        *.epub
     - uses: seanmiddleditch/gha-publish-to-git@master
       with:
         branch: gh-pages
         github_token: '${{ secrets.GITHUB_TOKEN  }}'
-        github_pat: '${{ secrets.GH_PAT }}'
-        source_folder: .
