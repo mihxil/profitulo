@@ -10,3 +10,5 @@
 /*.epub
 /*.metadata
 /.idea/
+.gitmodules
+/html2latex/
