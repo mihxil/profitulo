@@ -3,5 +3,10 @@
 /*.out
 /*.pdf
 /revisio.tex
+/*-a4.tex
+/*-a5.tex
+/*-epub.tex
 /zeeland.eps
 /*.epub
+/*.metadata
+/.idea/
