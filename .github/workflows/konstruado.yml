@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Konstruas cxion
+    - uses: actions/checkout@v2 
+      with:
+         submodules: 'true'
+    - name: Konstruas cxion    
       run: |
         make per-docker
