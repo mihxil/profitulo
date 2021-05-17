@@ -10,4 +10,3 @@ RewriteRule ^(.*) http://meeuw.org/profitulo/$1 [R=301,L]
 
 RewriteCond %{HTTP_HOST} ^www\.vek\.komputilo\.org [NC]
 RewriteRule ^(.*) http://meeuw.org/profitulo/$1 [R=301,L]
-
