@@ -2,6 +2,8 @@
 /*.log
 /*.out
 /*.pdf
+/*.fdb_latexmk
+/*.fls
 /revisio.tex
 /*-a4.tex
 /*-a5.tex
