@@ -4,6 +4,8 @@
 /*.pdf
 /*.fdb_latexmk
 /*.fls
+/*.ps
+/*.xdv
 /revisio.tex
 /revisio.txt
 /*-a4.tex
