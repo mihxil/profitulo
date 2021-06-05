@@ -10,3 +10,6 @@ RewriteRule ^(.*) http://meeuw.org/profitulo/$1 [R=301,L]
 
 RewriteCond %{HTTP_HOST} ^www\.vek\.komputilo\.org [NC]
 RewriteRule ^(.*) http://meeuw.org/profitulo/$1 [R=301,L]
+
+Header set "Content-Language" "eo" "expr=%{CONTENT_TYPE} == 'text/html'"
+Header set "Cache-Control" "public, max-age=604800"
