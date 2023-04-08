@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
          submodules: 'true'
-    - name: Konstruas cxion
+    - name: Konstruas ĉion
       run: |
         make per-docker
     - uses: actions/upload-artifact@v2
