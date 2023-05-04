@@ -17,7 +17,7 @@ jobs:
         make per-docker
     - uses: actions/upload-artifact@v3
       with:
-       name: profitulo.zip
+       name: profitulo
        path: |
         *.pdf
         *.epub
