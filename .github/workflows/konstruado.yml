@@ -23,8 +23,7 @@ jobs:
        path: |
         *.pdf
         *.epub
-    # ne funkcias?
-    #- uses: seanmiddleditch/gha-publish-to-git@master
-    #  with:
-    #    branch: gh-pages
-    #    github_token: '${{ secrets.GITHUB_TOKEN  }}'
+    - uses: seanmiddleditch/gha-publish-to-git@v2
+      with:
+        branch: gh-pages
+        github_token: '${{ secrets.GITHUB_TOKEN  }}'
