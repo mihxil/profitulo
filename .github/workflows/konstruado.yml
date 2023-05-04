@@ -6,17 +6,15 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
          submodules: 'true'
     - name: Konstruas ĉion
       run: |
         make per-docker
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
        name: profitulo.zip
        path: |
