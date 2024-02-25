@@ -19,3 +19,6 @@ im/nijmegen.jpg:
 im/kamer.jpg: kamer.XCF
 	mkdir -p img
 	convert -layers merge $< $@
+
+clean2: clean
+	rm -rf im
