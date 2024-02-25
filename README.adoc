@@ -5,3 +5,11 @@ image:https://github.com/mihxil/profitulo/actions/workflows/konstruado.yml/badge
 Esperantigo de la novelo 'De Uitvreter' (Nescio)
 
 Vidu https://meeuw.org/profitulo
+
+== Provu mem
+[source, bash]
+----
+git clone --recurse-submodules git@github.com:mihxil/profitulo.git
+cd profitulo
+make per-docker
+----
