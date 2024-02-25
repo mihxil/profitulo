@@ -6,6 +6,8 @@ Esperantigo de la novelo 'De Uitvreter' (Nescio)
 
 Vidu https://meeuw.org/profitulo
 
+(kaj https://mihxil.github.io/profitulo/)
+
 == Provu mem
 [source, bash]
 ----
